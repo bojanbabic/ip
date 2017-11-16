@@ -1,6 +1,10 @@
 package com.interview.prepare.algos;
 
 /**
+ * Dynamic Programming
+ * http://www.geeksforgeeks.org/dynamic-programming-set-5-edit-distance/
+ * Stanford lesson here
+ * https://www.youtube.com/watch?v=Xxx0b7djCrs
  * Created by bojan on 4/4/17.
  */
 public class EditDistance {

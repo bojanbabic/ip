@@ -36,11 +36,22 @@ public class SortingExamplesTest {
 
     @Test
     public void quickSortTest() {
-        int[] a = new int[]{3, 2, 1, 0};
-        int[] e = new int[]{0, 1, 2, 3};
+        int[] a = new int[]{32, 21, 10, 0};
+        int[] e = new int[]{0, 10, 21, 32};
         se.quickSort(a, 0, a.length - 1);
         for (int i = 0; i < a.length; i++) {
             assertEquals(e[i], a[i]);
         }
+    }
+
+    @Test
+    public void quickSortFirstPartitionTest() {
+        int[] a = new int[]{32, 21, 10, 0};
+        int[] e = new int[]{0, 10, 21, 32};
+        se.quickSortFirstPivot(a, 0, a.length - 1);
+        for (int i = 0; i < a.length; i++) {
+            assertEquals(e[i], a[i]);
+        }
+
     }
 }

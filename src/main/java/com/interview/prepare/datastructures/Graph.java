@@ -1,8 +1,11 @@
 package com.interview.prepare.datastructures;
 
 
+import com.google.common.collect.Lists;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
@@ -61,5 +64,65 @@ public class Graph {
                 }
             }
         }
+    }
+
+    // used to generate DAGs
+    public List<Integer> topologicalSort() {
+        List<Integer> topoOrder = new LinkedList<Integer>();
+        Stack<Integer> reverseDag = new Stack<Integer>();
+        Stack<Integer> stack = new Stack<Integer>();
+        List<Integer> visited = new ArrayList<Integer>();
+        for (Integer edge: edgeList.keySet()) {
+            if (visited.contains(edge)) {
+                continue;
+            }
+            stack.push(edge);
+            visited.add(edge);
+            reverseDag.push(edge);
+            while (!stack.isEmpty()) {
+                int tmp = stack.pop();
+                visited.add(edge);
+                List<Integer> nodes = edgeList.get(tmp);
+                for (Integer node: nodes) {
+                    if (!visited.contains(node)) {
+                        stack.push(node);
+                        visited.add(node);
+                        reverseDag.push(node);
+                    }
+                }
+            }
+            while(!reverseDag.isEmpty()) {
+                topoOrder.add(reverseDag.pop());
+            }
+        }
+        return topoOrder;
+    }
+
+    public boolean isCycleGraph() {
+        boolean isCycle = false;
+        Stack<Integer> stack = new Stack<Integer>();
+        List<Integer> visited = new ArrayList<Integer>();
+        for (Integer edge: edgeList.keySet()) {
+            stack.add(edge);
+            while(!stack.isEmpty()) {
+                // NOTE: peek instead of pop
+                int tmp = stack.peek();
+                List<Integer> nodes = edgeList.get(tmp);
+                boolean nodesToProcess = false;
+                for (Integer node: nodes) {
+                    if (stack.contains(node)) {
+                        isCycle = true;
+                        return isCycle;
+                    }
+                    if (!visited.contains(node)) {
+                        nodesToProcess = true;
+                        stack.add(node);
+                        visited.add(node);
+                    }
+                }
+                if (!nodesToProcess) stack.removeAllElements();
+            }
+        }
+        return isCycle;
     }
 }

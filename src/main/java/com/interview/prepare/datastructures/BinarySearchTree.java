@@ -4,8 +4,6 @@ package com.interview.prepare.datastructures;
  * Created by bojan on 3/22/17.
  */
 
-import com.interview.prepare.datastructures.TreeNode;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -24,6 +22,7 @@ public class BinarySearchTree {
 
     TreeNode root;
     LinkedList<Integer> ordered = new LinkedList<Integer>();
+
     public BinarySearchTree(TreeNode root) {
         this.root = root;
         iterate(root);
@@ -53,6 +52,21 @@ public class BinarySearchTree {
             printAllPaths(root.left, new ArrayList<Integer>(paths));
             printAllPaths(root.right, new ArrayList<Integer>(paths));
         }
+    }
+
+    public List<Integer> inorder() {
+        List<Integer> list = new LinkedList<Integer>();
+        inorder(list, this.root);
+        return list;
+    }
+
+    private void inorder(List<Integer> nodes, TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        if (root.left != null) inorder(nodes, root.left);
+        nodes.add(root.val);
+        if (root.right != null) inorder(nodes, root.right);
     }
 
     /** @return whether we have a next smallest number */

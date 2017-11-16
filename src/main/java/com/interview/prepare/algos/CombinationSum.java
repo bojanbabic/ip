@@ -34,4 +34,30 @@ public class CombinationSum {
             }
         }
     }
+
+    public List<List<Integer>> combinationSumBacktracking(ArrayList<Integer> candidates, int target) {
+        List<List<Integer>> list = new ArrayList<List<Integer>>();
+        List<Integer> partials = new ArrayList<Integer>();
+        partialSumsBacktracking(list, partials, candidates, target);
+        return list;
+    }
+
+    private void partialSumsBacktracking(List<List<Integer>> list, List<Integer> partials,
+        ArrayList<Integer> candidates, int target) {
+        if (target == 0) {
+            Collections.sort(partials);
+            if (!list.contains(partials)) {
+                list.add(partials);
+            }
+        } else {
+            for (int i = 0; i < candidates.size(); i++) {
+                if (candidates.get(i) > target) {
+                    continue;
+                }
+                partials.add(candidates.get(i));
+                partialSumsBacktracking(list, new ArrayList<Integer>(partials), candidates, target - candidates.get(i));
+                partials.remove(partials.size() - 1);
+            }
+        }
+    }
 }
