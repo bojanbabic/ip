@@ -36,10 +36,10 @@ public class SortingExamples {
         int i = left;
         int j = right;
         while (i <= j) {
-            while (array[i] < array[pivot]) {
+            while (array[i] < pivot) {
                 i++;
             }
-            while (array[pivot] < array[j]) {
+            while (pivot < array[j]) {
                 j--;
             }
             if (i <= j) {
@@ -52,6 +52,36 @@ public class SortingExamples {
         }
         if (mid < right) {
             quickSort(array, mid + 1, right);
+        }
+    }
+
+    public void quickSortFirstPivot(int[] ar, int left, int right) {
+        int i = left + 1, j = right;
+        int pivot = ar[left];
+        while (i <= j) {
+            while (i < ar.length && ar[i] < pivot) {
+                i++;
+            }
+            while (ar[j] > pivot) {
+                j--;
+            }
+            if (i <= j) {
+                int tmp = ar[i];
+                ar[i] = ar[j];
+                ar[j] = tmp;
+                i++;
+                j--;
+            }
+        }
+        if (left > j) return;
+        int tmp = ar[left];
+        ar[left] = ar[j];
+        ar[j] = tmp;
+        if (left < j) {
+            quickSortFirstPivot(ar, left, j);
+        }
+        if (j < right) {
+            quickSortFirstPivot(ar, j + 1, right);
         }
     }
 }

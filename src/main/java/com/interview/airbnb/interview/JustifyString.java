@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * TODO check for another solution
+ * https://discuss.leetcode.com/category/76/text-justification
  * Created by bojan on 3/10/17.
  */
 public class JustifyString {
