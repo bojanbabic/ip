@@ -18,7 +18,7 @@ public class BinarySearchTreeTest {
         n1.right = n3;
         n3.right = n4;
         BinarySearchTree tree = new BinarySearchTree(n1);
-        assertEquals("12\n13", tree.printAllPaths());
+        assertEquals("12\n134", tree.printAllPaths());
     }
 
 }

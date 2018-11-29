@@ -1,5 +1,8 @@
 package com.interview.prepare.datastructures;
 
+import java.util.List;
+import java.util.Queue;
+
 /**
  * https://leetcode.com/problems/validate-binary-search-tree
  * Created by bojan on 3/25/17.
@@ -46,5 +49,11 @@ public class ValidBST {
         } else {
             return true;
         }
+    }
+
+    TreeNode reconstructPreOrderSerialization(String[] order) {
+        Integer rootVal = Integer.parseInt(order[0]);
+        TreeNode t = new TreeNode(rootVal);
+        return t;
     }
 }

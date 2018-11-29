@@ -7,8 +7,12 @@ import static java.lang.Math.*;
 
 /**
  * TODO see interval tree for better performing solution
+ *
  * http://www.geeksforgeeks.org/given-n-appointments-find-conflicting-appointments/
- * Created by bojan on 2/22/17.
+ * interval tree:
+ *  - intervals ordered by interval low values (self balanced binary tree)
+ *  - node keep info on low, high values of interval as well as max value of the subtree
+ *
  */
 public class OverlapTimes {
 

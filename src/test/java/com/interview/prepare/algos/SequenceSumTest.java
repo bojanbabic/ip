@@ -16,7 +16,7 @@ public class SequenceSumTest {
         int[] a1 = {1};
         assertEquals(1, ss.maxSubArray(a1));
         int[] a2 = {-1, -2};
-        assertEquals(-1, ss.maxSubArray(a2));
+        assertEquals(0, ss.maxSubArray(a2));
     }
 
 }

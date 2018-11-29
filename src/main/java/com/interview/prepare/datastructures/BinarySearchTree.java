@@ -37,21 +37,23 @@ public class BinarySearchTree {
     }
 
     public String printAllPaths() {
-        StringBuilder sb = new StringBuilder();
-        printAllPaths(root, new ArrayList<Integer>());
-        return sb.toString();
+        List<List<Integer>> paths = new LinkedList<List<Integer>>();
+        List<Integer> path = new ArrayList<Integer>();
+        printAllPaths(root, path, paths);
+        return paths.toString();
     }
-    public void printAllPaths(TreeNode root, List<Integer> paths) {
+    public void printAllPaths(TreeNode root, List<Integer> path, List<List<Integer>> paths) {
         if (root == null) {
             return;
         }
         if (root.left == null && root.right == null) {
-            paths.add(root.val);
-            System.out.println(paths);
+            path.add(root.val);
+            paths.add(path);
+            System.out.println(path);
         } else {
-            paths.add(root.val);
-            printAllPaths(root.left, new ArrayList<Integer>(paths));
-            printAllPaths(root.right, new ArrayList<Integer>(paths));
+            path.add(root.val);
+            printAllPaths(root.left, new ArrayList<Integer>(path), paths);
+            printAllPaths(root.right, new ArrayList<Integer>(path), paths);
         }
     }
 

@@ -30,4 +30,22 @@ public class EditDistance {
         return matrix[s1.length()][s2.length()];
 
     }
+
+    int editDistanceRecursive(char[] str1, char[] str2, int pos1, int pos2) {
+        if (pos1 == str1.length) {
+            return str2.length - pos2;
+        }
+
+        if (pos2 == str2.length) {
+            return str1.length - pos1;
+        }
+
+        if (str1[pos1] == str2[pos2]) {
+            return editDistanceRecursive(str1, str2, pos1 + 1, pos2 + 1);
+        }
+        return 1 + Math.min(editDistanceRecursive(str1, str2, pos1, pos2 + 1), // insert
+                Math.min(editDistanceRecursive(str1, str2, pos1 + 1, pos2 + 1), // replace
+                editDistanceRecursive(str1, str2, pos1 + 1, pos2)) // delete
+        );
+    }
 }

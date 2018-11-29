@@ -36,6 +36,8 @@ public class DeserializeBSTTest {
         String s = "0,1,|,|,2,|,|,";
         Node n = d.deserialize(s);
         assertEquals(0, n.data);
+        assertEquals(1, n.left.data);
+        assertEquals(2, n.right.data);
     }
 
 }

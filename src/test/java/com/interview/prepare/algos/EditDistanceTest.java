@@ -1,5 +1,6 @@
 package com.interview.prepare.algos;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -14,6 +15,11 @@ public class EditDistanceTest {
     @Test
     public void calculate() throws Exception {
         ed.calculate("aba", "mama");
+    }
+
+    @Test
+    public void editDistanceRecursive() {
+        Assert.assertEquals(3, ed.editDistanceRecursive("saturday".toCharArray(), "sunday".toCharArray(), 0, 0));
     }
 
 }
