@@ -24,16 +24,6 @@ word = "SEE", -> returns true,
 word = "ABCB", -> returns false.
 
  */
-  class Point {
-    int x;
-    int y;
-
-    public Point(final int x, final int y) {
-      this.x = x;
-      this.y = y;
-    }
-  }
-
   public WordSearch2D(final char[][] matrix) {
     this.matrix = matrix;
     preprocess();
@@ -56,22 +46,22 @@ word = "ABCB", -> returns false.
   private Point nextPoint(Point p, char nextChar) {
     Point nextPoint = null;
 //    for (Point p: startingPoints) {
-      // go left
+      // maxDiff left
       Point left = goLeft(p);
       if (left != null && matrix[left.x][left.y] == nextChar) {
         nextPoint = left;
       }
       Point right = goRight(p);
-      // go right
+      // maxDiff right
       if (right != null && matrix[right.x][right.y] == nextChar) {
         nextPoint = right;
       }
-      // go up
+      // maxDiff up
       Point up = goUp(p);
       if (right != null && matrix[up.x][up.y] == nextChar) {
         nextPoint = up;
       }
-      // go down
+      // maxDiff down
       Point down = goDown(p);
       if (down != null && matrix[down.x][down.y] == nextChar) {
         nextPoint = down ;

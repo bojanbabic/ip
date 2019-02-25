@@ -1,7 +1,7 @@
 Rotate Array, Reverse Words in a String
 Evaluate Reverse Polish Notation (Stack)
 Isomorphic Strings
-Word Ladder (BFS), Word Ladder II (BFS)
+Word Ladder (BFS), Word Ladder II (BFS) +
 Median of Two Sorted Arrays
 Kth Largest Element in an Array
 Wildcard Matching, Regular Expression Matching
@@ -10,7 +10,7 @@ Two Sum, Two Sum II, Two Sum III, 3Sum, 4Sum
 3Sum Closest
 String to Integer
 Merge Sorted Array
-Valid Parentheses
+Valid Parentheses +
 Longest Valid Parentheses
 Implement strStr()
 Minimum Size Subarray Sum
@@ -23,7 +23,7 @@ Length of Last Word
 Triangle
 Contains Duplicate: I, II, III
 Remove Duplicates from Sorted Array: I, II, Remove Element , Move Zeroes
-Longest Substring Without Repeating Characters
+Longest Substring Without Repeating Characters +
 Longest Substring that contains 2 unique characters [Google]
 Substring with Concatenation of All Words
 Minimum Window Substring
@@ -70,16 +70,16 @@ Intersection of Two Arrays, Intersection of Two Arrays II
 Sliding Window Maximum, Moving Average from Data Stream
 Guess Number Higher or Lower
 Set Matrix Zeroes
-Spiral Matrix
+Spiral Matrix +
 Spiral Matrix II
-Search a 2D Matrix
-Search a 2D Matrix II
-Rotate Image [Palantir]
+Search a 2D Matrix +
+Search a 2D Matrix II +
+Rotate Image [Palantir] +
 Valid Sudoku 
 Minimum Path Sum (DP) [Google]
 Unique Paths (DP) [Google]
 Unique Paths II (DP)
-Number of Islands (DFS/BFS), Number of Islands II (Disjoint Set), Number of Connected Components in an Undirected Graph
+Number of Islands (DFS/BFS) +, Number of Islands II (Disjoint Set), Number of Connected Components in an Undirected Graph
 Surrounded Regions (BFS)
 Maximal Rectangle
 Maximal Square
@@ -124,12 +124,12 @@ Validate Binary Search Tree
 Flatten Binary Tree to Linked List
 Path Sum (DFS or BFS)
 Path Sum II (DFS) 
-Construct Binary Tree from Inorder and Postorder Traversal
-Construct Binary Tree from Preorder and Inorder Traversal
-Convert Sorted Array to Binary Search Tree [Google]
-Convert Sorted List to Binary Search Tree [Google]
-Minimum Depth of Binary Tree
-Binary Tree Maximum Path Sum *
+Construct Binary Tree from Inorder and Postorder Traversal +
+Construct Binary Tree from Preorder and Inorder Traversal +
+Convert Sorted Array to Binary Search Tree [Google] +
+Convert Sorted List to Binary Search Tree [Google] +
+Minimum Depth of Binary Tree +
+Binary Tree Maximum Path Sum +
 Balanced Binary Tree
 Symmetric Tree
 Binary Search Tree Iterator +
@@ -198,7 +198,7 @@ Longest Common Subsequence
 Longest Common Substring
 Longest Increasing Subsequence
 Coin Change
-Perfect Squares
+Perfect Squares +
 Single Number
 Single Number II
 Maximum Binary Gap

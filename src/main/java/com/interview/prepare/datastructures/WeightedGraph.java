@@ -129,11 +129,12 @@ public class WeightedGraph {
     }
 
     // Dijkstra
-    public List<ShortestPath> shortestPath(Vertex s) {
+    public List<ShortestPath> shortestPath(Vertex start, Vertex end) {
         PriorityQueue<ShortestPath> pq = new PriorityQueue<ShortestPath>();
         Map<Vertex, Double> pqVals = Maps.newHashMap();
-        Stack<ShortestPath> sp = new Stack<ShortestPath>();
-        List<Edge> adj = graph.get(s);
+        Stack<ShortestPath> sp = new Stack<>();
+        List<Vertex> visited = new ArrayList<>();
+        List<Edge> adj = graph.get(start);
         for (Edge edge: adj) {
             pq.add(new ShortestPath(edge.to, edge.weight));
             pqVals.put(edge.to, edge.weight);
@@ -141,15 +142,22 @@ public class WeightedGraph {
         while(!pq.isEmpty()) {
             ShortestPath shortest = pq.poll();
             sp.add(shortest);
+            if (shortest.v.equals(end)) {
+                return Lists.newArrayList(sp.iterator());
+            }
             List<Edge> a = graph.get(shortest.v);
             for (Edge e: a) {
                 ShortestPath p = new ShortestPath(e.to, shortest.weight + e.weight);
-                // TODO pq java impl does not allow update  of values!!!
+                if (visited.contains(p.v)) {
+                    continue;
+                }
                 if (pq.contains(p) && p.weight < pqVals.get(e.to) || !pq.contains(p)) {
+                    pq.remove(p);
                     pq.add(p);
                     pqVals.put(p.v, p.weight);
                 }
             }
+            visited.add(shortest.v);
         }
         return Lists.newArrayList(sp.iterator());
     }

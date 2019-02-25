@@ -17,8 +17,8 @@ public class LetterCombinationsTest {
     public void letterCombinations() throws Exception {
         String[] s = {"ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"};
         List<String> list = new ArrayList<String>(Arrays.asList(s));
-//        assertEquals(list, lc.letterCombinations("23"));
-        assertEquals(list, lc.letterCombinations("2"));
+        assertEquals(list, lc.letterCombinations("23"));
+//        assertEquals(list, lc.letterCombinations("2"));
     }
 
 }

@@ -49,4 +49,10 @@ public class NumberOperationsTest {
         assertEquals("1F", p.fromDecimal(31, 16));
     }
 
+    @Test
+    public void testSqrt() {
+        assertEquals(3, p.sqrt(9));
+        assertEquals(4, p.sqrt(16));
+    }
+
 }

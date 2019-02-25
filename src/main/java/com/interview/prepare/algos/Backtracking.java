@@ -59,4 +59,22 @@ public class Backtracking {
             }
         }
     }
+
+    public List<List<Integer>> permutationsWithRepeat(int[] list) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> tmpList = new ArrayList<>();
+        backtrackPermutationsWithRepeat(result, tmpList, list, list.length);
+        return result;
+    }
+    private void backtrackPermutationsWithRepeat(List<List<Integer>> list, List<Integer> tmpList, int[] nums, int k) {
+       if (tmpList.size() == k) {
+           list.add(new ArrayList<>(tmpList));
+       } else {
+           for (int i = 0; i < nums.length; i++) {
+               tmpList.add(nums[i]);
+               backtrackPermutationsWithRepeat(list, tmpList, nums, k);
+               tmpList.remove(tmpList.size() - 1);
+           }
+       }
+    }
 }

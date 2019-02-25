@@ -29,6 +29,9 @@ public class GraphTest {
     public void DFS() throws Exception {
         g.DFS(2);
         System.out.println("");
+        g.DFS1(2);
+        System.out.println("");
+        g.BFS1(2);
         g.BFS(2);
     }
 
@@ -47,7 +50,7 @@ public class GraphTest {
         g.addEdge(6,0);
         g.addEdge(3,2);
         g.addEdge(1,4);
-        assertEquals("4125063", Joiner.on("").join(g.topologicalSort()));
+        assertEquals("4125063", Joiner.on("").join(g.topSort1()));
     }
 
     @Test

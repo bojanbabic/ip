@@ -33,6 +33,7 @@ public class PalindromePairs {
                 palindroms.add(Arrays.asList(wordMap.get(reverse), wordMap.get(w)));
             }
         }
+
         for (String w: wordMap.keySet()) {
             for (int i = 1; i < w.length(); i++) {
                 String cut = w.substring(0, i);

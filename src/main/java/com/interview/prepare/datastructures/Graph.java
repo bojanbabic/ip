@@ -2,15 +2,10 @@ package com.interview.prepare.datastructures;
 
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
+import java.util.stream.Stream;
 
 /**
  * Created by bojan on 3/25/17.
@@ -48,6 +43,22 @@ public class Graph {
         }
     }
 
+    public void DFS1(int start) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(start);
+        List<Integer> visited = new ArrayList<>();
+        while(!stack.isEmpty()) {
+            Integer elem = stack.pop();
+            visited.add(elem);
+            System.out.println(elem);
+            edgeList.get(elem).stream().forEach(e -> {
+                if (!visited.contains(e)) {
+                    stack.add(e);
+                }
+            });
+        }
+    }
+
     public void BFS(int start) {
         Queue<Integer> q = new LinkedList<Integer>();
         List<Integer> visited = new LinkedList<Integer>();
@@ -66,6 +77,75 @@ public class Graph {
         }
     }
 
+    public void BFS1(int start) {
+        Queue<Integer> queue = new LinkedList<>();
+        List<Integer> visited = new ArrayList<>();
+        queue.add(start);
+        while (!queue.isEmpty()) {
+            Integer elem = queue.poll();
+            System.out.println(elem + " ");
+            visited.add(elem);
+            edgeList.get(elem).stream().forEach(e -> {
+                if (!visited.contains(e)) {
+                    queue.add(e);
+                }
+            });
+        }
+    }
+
+    public List<Integer> unweightedShortestPath(Integer from, Integer to) {
+        PriorityQueue<Integer> pqueue = new PriorityQueue<>();
+        Set<Integer> visited = new HashSet<>();
+        Map<Integer, Double> weights = Maps.newHashMap();
+        pqueue.offer(from);
+        int cost = 0;
+        List<Integer> path = Lists.newArrayList();
+        while (!pqueue.isEmpty()) {
+            Integer elem = pqueue.poll();
+            path.add(elem);
+            List<Integer> n = edgeList.get(elem);
+            visited.add(elem);
+            for (Integer e: n) {
+
+                if (e == to) {
+                    return path;
+                }
+
+            }
+        }
+        return null;
+    }
+
+    public List<Integer> topSort1() {
+        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> toppOrder = new Stack<>();
+        List<Integer> visited = Lists.newArrayList();
+        List<Integer> out = Lists.newArrayList();
+        for (Integer edge: edgeList.keySet()) {
+            if (visited.contains(edge)) {
+                continue;
+            }
+            visited.add(edge);
+            stack.push(edge);
+            toppOrder.push(edge);
+            while (!stack.isEmpty()) {
+                int tmp = stack.pop();
+                List<Integer> neighbours = edgeList.get(tmp);
+                for (Integer n: neighbours) {
+                    if (visited.contains(n)) {
+                        continue;
+                    }
+                    toppOrder.push(n);
+                    stack.push(n);
+                    visited.add(n);
+                }
+
+            }
+            while (!toppOrder.isEmpty()) out.add(toppOrder.pop());
+        }
+        return out;
+    }
+
     // used to generate DAGs
     public List<Integer> topologicalSort() {
         List<Integer> topoOrder = new LinkedList<Integer>();
@@ -81,7 +161,7 @@ public class Graph {
             reverseDag.push(edge);
             while (!stack.isEmpty()) {
                 int tmp = stack.pop();
-                visited.add(edge);
+//                visited.add(edge);
                 List<Integer> nodes = edgeList.get(tmp);
                 for (Integer node: nodes) {
                     if (!visited.contains(node)) {

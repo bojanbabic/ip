@@ -56,6 +56,20 @@ public class BinarySearchTree {
         }
     }
 
+    public int maxBranch() {
+        return maxBranchHelper(this.root);
+    }
+
+    public int maxBranchHelper(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int leftPath = maxBranchHelper(root.left);
+        int rightPath = maxBranchHelper(root.right);
+        int maxPath = 1 + Math.max(leftPath, rightPath);
+        return maxPath;
+    }
+
     public List<Integer> inorder() {
         List<Integer> list = new LinkedList<Integer>();
         inorder(list, this.root);
@@ -70,6 +84,7 @@ public class BinarySearchTree {
         nodes.add(root.val);
         if (root.right != null) inorder(nodes, root.right);
     }
+
 
     /** @return whether we have a next smallest number */
     public boolean hasNext() {

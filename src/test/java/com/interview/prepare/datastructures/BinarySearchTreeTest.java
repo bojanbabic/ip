@@ -33,4 +33,10 @@ public class BinarySearchTreeTest {
         assertEquals("2134", Joiner.on("").join(tree.inorder()));
     }
 
+    @Test
+    public void maxBranch() {
+        BinarySearchTree tree = new BinarySearchTree(n1);
+        assertEquals(3, tree.maxBranch());
+    }
+
 }

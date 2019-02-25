@@ -5,8 +5,8 @@ package com.interview.prepare.datastructures;
  * Created by bojan on 3/27/17.
  */
 public class Node {
-    Node next;
-    int val;
+    public  Node next;
+    public  int val;
 
     public Node(int val) {
         this.val = val;
