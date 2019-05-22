@@ -1,11 +1,7 @@
 package com.interview.amazon;
 
-import com.google.common.primitives.Chars;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class AtoI {
     static List<Character> ACCEPTED_CHARS = new ArrayList<>();
@@ -20,13 +16,22 @@ public class AtoI {
         ACCEPTED_CHARS.add('7');
         ACCEPTED_CHARS.add('8');
         ACCEPTED_CHARS.add('9');
-        ACCEPTED_CHARS.add('-');
+    }
+    static List<Character> SPECIAL_CHARS = new ArrayList<>();
+    static {
+        SPECIAL_CHARS.add('-');
+        SPECIAL_CHARS.add('+');
     }
 
     public int myAtoi(String str) {
         int start = 0;
         int sign = 1;
+        boolean special = false;
         if (str.length() == 0) {
+            return 0;
+        }
+
+        if (str.length() == 1 && SPECIAL_CHARS.contains(str.charAt(start))) {
             return 0;
         }
 
@@ -34,36 +39,46 @@ public class AtoI {
             start = start + 1;
         }
 
-        if (str.charAt(start) == '-') {
-            sign = -1;
-            start = 1;
-        }
-
-        if (sign == -1 && str.length() == 1) {
-            return 0;
-        }
-
         if (start == str.length()) {
             return 0;
+        }
+
+        if (str.charAt(start) == '-') {
+            sign = -1;
+            start = start + 1;
+            special = true;
+            if (!ACCEPTED_CHARS.contains(str.charAt(start))) {
+                return 0;
+            }
+        }
+
+        if (str.charAt(start) == '+') {
+            sign = 1;
+            start = start + 1;
+            special = true;
+            if (!ACCEPTED_CHARS.contains(str.charAt(start))) {
+                return 0;
+            }
         }
 
         if (!ACCEPTED_CHARS.contains(str.charAt(start))) {
             return 0;
         }
-        int res = 0;
+        long res = 0;
         for (int i = start; i < str.toCharArray().length; i++) {
             if (!ACCEPTED_CHARS.contains(str.charAt(i))) {
-                continue;
+                break;
             }
-            res = res * 10 + Character.getNumericValue(str.charAt(i));
-            if (res > Integer.MAX_VALUE / 10) {
-                if (sign == 1) {
-                    return Integer.MAX_VALUE;
-                } else {
-                    return Integer.MIN_VALUE;
-                }
+            res = res * 10l;
+            res = res + Character.getNumericValue(str.charAt(i));
+            if (sign * res > Integer.MAX_VALUE) {
+                return Integer.MAX_VALUE;
+            }
+            if (sign * res < Integer.MIN_VALUE) {
+                return Integer.MIN_VALUE;
             }
         }
-        return sign * res;
+        res = sign * res;
+        return (int) res;
     }
 }

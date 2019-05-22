@@ -1,10 +1,13 @@
 package com.interview.prepare.datastructures;
 
 import com.google.common.base.Joiner;
+import com.sun.source.tree.BinaryTree;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -37,6 +40,19 @@ public class BinarySearchTreeTest {
     public void maxBranch() {
         BinarySearchTree tree = new BinarySearchTree(n1);
         assertEquals(3, tree.maxBranch());
+    }
+
+    @Test
+    public void levelByLevel() {
+        BinarySearchTree tree = new BinarySearchTree(n1);
+        tree.printLevelByLevel(n1);
+    }
+
+    @Test
+    public void levelOrder() {
+        BinarySearchTree tree = new BinarySearchTree(n1);
+        List<List<Integer>> levels = tree.levelOrder(n1);
+        System.out.println(levels);
     }
 
 }

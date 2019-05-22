@@ -3,23 +3,23 @@ Evaluate Reverse Polish Notation (Stack)
 Isomorphic Strings
 Word Ladder (BFS), Word Ladder II (BFS) +
 Median of Two Sorted Arrays
-Kth Largest Element in an Array
+Kth Largest Element in an Array +~
 Wildcard Matching, Regular Expression Matching
 Merge Intervals, Insert Interval
 Two Sum, Two Sum II, Two Sum III, 3Sum, 4Sum
 3Sum Closest
-String to Integer
+String to Integer +~
 Merge Sorted Array
 Valid Parentheses +
 Longest Valid Parentheses
 Implement strStr()
 Minimum Size Subarray Sum
-Search Insert Position
+Search Insert Position +~
 Longest Consecutive Sequence
-Valid Palindrome
+Valid Palindrome +~
 ZigZag Conversion
 Add Binary 
-Length of Last Word
+Length of Last Word ~
 Triangle
 Contains Duplicate: I, II, III
 Remove Duplicates from Sorted Array: I, II, Remove Element , Move Zeroes
@@ -27,9 +27,9 @@ Longest Substring Without Repeating Characters +
 Longest Substring that contains 2 unique characters [Google]
 Substring with Concatenation of All Words
 Minimum Window Substring
-Find Minimum in Rotated Sorted Array: I, II
+Find Minimum in Rotated Sorted Array: I, II +~
 Search in Rotated Array:I, II
-Min Stack
+Min Stack +~
 Majority Element: I, II
 Bulls and Cows 
 Largest Rectangle in Histogram
@@ -47,7 +47,7 @@ Search for a Range
 Basic Calculator, Basic Calculator II
 Group Anagrams
 Shortest Palindrome
-Rectangle Area
+Rectangle Area +~
 Summary Ranges
 Increasing Triplet Subsequence
 Get Target Using Number List And Arithmetic Operations 
@@ -177,7 +177,7 @@ Distinct Subsequences Total
 Longest Palindromic Substring
 Word Break
 Word Break II
-Maximum Subarray
+Maximum Subarray +
 Maximum Product Subarray
 Palindrome Partitioning
 Palindrome Partitioning II 
@@ -186,9 +186,9 @@ House Robber II
 House Robber III
 Jump Game
 Jump Game II
-Best Time to Buy and Sell Stock 
-Best Time to Buy and Sell Stock II
-Best Time to Buy and Sell Stock III 
+Best Time to Buy and Sell Stock +~
+Best Time to Buy and Sell Stock II +~
+Best Time to Buy and Sell Stock III +~
 Best Time to Buy and Sell Stock IV 
 Dungeon Game 
 Minimum Path Sum
@@ -216,12 +216,12 @@ Permutation Sequence +
 Generate Parentheses
 Combination Sum (DFS), II (DFS), III (DFS), IV (DP) +
 Combinations (DFS) +
-Letter Combinations of a Phone Number (DFS)
-Restore IP Addresses
+Letter Combinations of a Phone Number (DFS) ~+
+Restore IP Addresses +~
 Factor Combinations (DFS)
 Reverse Integer
 Palindrome Number
-Pow(x,n), Power of Two, Power of Three, Power of Four 
+Pow(x,n), Power of Two, Power of Three, Power of Four +~
 Subsets
 Subsets II
 Fraction to Recurring Decimal [Google]
@@ -238,10 +238,10 @@ Product of Array Except Self
 Integer Break
 Add Digits
 Ugly Number, 9Ugly Number II, Super Ugly Number, Find K Pairs with Smallest Sums
-Shortest Word Distance II
+Shortest Word Distance II +~
 Self Crossing
 Patching Array
 Nim Game
 Bulb Switcher
 Pain Fence
-Nested List Weight Sum
+Nested List Weight Sum +~

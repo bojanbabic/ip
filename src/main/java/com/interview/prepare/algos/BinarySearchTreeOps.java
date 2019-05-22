@@ -3,8 +3,7 @@ package com.interview.prepare.algos;
 import com.interview.prepare.datastructures.Node;
 import com.interview.prepare.datastructures.TreeNode;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class BinarySearchTreeOps {
     void traverseInOrder(TreeNode node, List<Integer> list) {
@@ -20,10 +19,47 @@ public class BinarySearchTreeOps {
         traverseInOrder(node.right, list);
     }
 
+
+    public void traverseInOrder_cp1(TreeNode node, List<Integer> list) {
+        if (node == null) {
+            return;
+        }
+        if (node.left != null) {
+            traverseInOrder_cp1(node.left, list);
+        }
+        list.add(node.val);
+        if (node.right != null) {
+            traverseInOrder_cp1(node.right, list);
+        }
+    }
+
     public int findKthElement(TreeNode treeNode, int k) {
         List<Integer> list = new ArrayList<Integer>();
         traverseInOrder(treeNode, list);
         return list.get(k);
+    }
+
+    public void levelByLevel(TreeNode n) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        if (n == null) {
+            return;
+        }
+        List<TreeNode> currentLevel = Arrays.asList(n);
+        while (!currentLevel.isEmpty()) {
+            queue.addAll(currentLevel);
+            currentLevel = new ArrayList<>();
+            while (!queue.isEmpty()) {
+                TreeNode node = queue.poll();
+                System.out.print(node.val);
+                if (node.left != null) {
+                    currentLevel.add(node.left);
+                }
+                if (node.right != null) {
+                    currentLevel.add(node.right);
+                }
+            }
+            System.out.println();
+        }
     }
 
 
@@ -36,7 +72,7 @@ public class BinarySearchTreeOps {
      * @param posEnd
      * @return
      */
-    public TreeNode constructBinarySearcTree(int[] in, int[] pos, int startIn, int inEnd, int posEnd) {
+    public TreeNode constructBinarySearchTree(int[] in, int[] pos, int startIn, int inEnd, int posEnd) {
         if (startIn > inEnd) {
             return null;
         }
@@ -55,8 +91,8 @@ public class BinarySearchTreeOps {
             }
             i++;
         }
-        node.left = constructBinarySearcTree(in, pos, startIn, i - 1, i - 1);
-        node.right = constructBinarySearcTree(in, pos, i + 1, inEnd, posEnd - 1);
+        node.left = constructBinarySearchTree(in, pos, startIn, i - 1, i - 1);
+        node.right = constructBinarySearchTree(in, pos, i + 1, inEnd, posEnd - 1);
         return node;
     }
 

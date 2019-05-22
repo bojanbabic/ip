@@ -1,7 +1,5 @@
 package com.interview.prepare.datastructures;
 
-import java.util.Stack;
-
 /**
  * Uber interview
  * https://www.programcreek.com/2014/06/leetcode-word-search-java/

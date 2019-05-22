@@ -10,14 +10,13 @@ public class MergeIntervals {
         if (intervals.size() < 2) {
             return intervals;
         }
-        int i = 0;
-        Collections.sort(intervals, new Comparator<Interval>(){
-            public int compare(Interval interval, Interval t1) {
-                if (interval.start != t1.start)
-                    return interval.start - t1.start;
-                else return interval.end - t1.end;
+        Collections.sort(intervals, (i1, i2) -> {
+                if (i1.start != i2.start)
+                    return i1.start - i2.start;
+                else return i1.end - i2.end;
             }
-        });
+        );
+        int i = 0;
         List<Interval> linkedIntervals = new LinkedList<Interval>(intervals);
         while(i < linkedIntervals.size() - 1) {
             Interval current = linkedIntervals.get(i);

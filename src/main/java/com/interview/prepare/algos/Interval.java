@@ -4,8 +4,8 @@ package com.interview.prepare.algos;
  * Created by bojan on 3/8/17.
  */
 public class Interval implements Comparable<Interval> {
-    int start;
-    int end;
+    public int start;
+    public int end;
     Interval() {
         start = 0; end = 0;
     }

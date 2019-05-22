@@ -3,7 +3,6 @@ package com.interview.prepare.algos;
 import com.interview.prepare.datastructures.BinarySearchTree;
 import com.interview.prepare.datastructures.Node;
 import com.interview.prepare.datastructures.TreeNode;
-import com.sun.tools.javac.util.ArrayUtils;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -25,8 +24,36 @@ public class BinarySearchTreeOpsTest {
         n1.left = n2;
         n1.right = n3;
         n3.right = n4;
+        List<Integer> expected = Arrays.asList(2, 1, 3, 4);
+        List<Integer> inorder = new ArrayList<>();
+//        ops.traverseInOrder(n1, inorder);
+        ops.traverseInOrder_cp1(n1, inorder);
+        assertArrayEquals(expected.toArray(), inorder.toArray());
+    }
+
+    @Test
+    public void findKthElement() {
+        TreeNode n1 = new TreeNode(1);
+        TreeNode n2 = new TreeNode(2);
+        TreeNode n3 = new TreeNode(3);
+        TreeNode n4 = new TreeNode(4);
+        n1.left = n2;
+        n1.right = n3;
+        n3.right = n4;
         List<Integer> list = new ArrayList<Integer>();
         assertEquals(3, ops.findKthElement(n1, 2));
+    }
+
+    @Test
+    public void printLevelByLevel() {
+        TreeNode n1 = new TreeNode(1);
+        TreeNode n2 = new TreeNode(2);
+        TreeNode n3 = new TreeNode(3);
+        TreeNode n4 = new TreeNode(4);
+        n1.left = n2;
+        n1.right = n3;
+        n3.right = n4;
+        ops.levelByLevel(n1);
     }
 
     @Test
@@ -34,7 +61,7 @@ public class BinarySearchTreeOpsTest {
         int[] in = {4, 8, 2, 5, 1, 6, 3, 7};
         int[] pos = {8, 4, 5, 2, 6, 7, 3, 1};
         List<Integer> intBoxed = Arrays.stream(in).boxed().collect(Collectors.toList());
-        TreeNode node = ops.constructBinarySearcTree(in, pos, 0, in.length - 1, pos.length - 1);
+        TreeNode node = ops.constructBinarySearchTree(in, pos, 0, in.length - 1, pos.length - 1);
         List<Integer> inorder = new BinarySearchTree(node).inorder();
     }
 

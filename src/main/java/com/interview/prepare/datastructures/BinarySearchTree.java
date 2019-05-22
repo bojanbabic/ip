@@ -7,6 +7,7 @@ package com.interview.prepare.datastructures;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * Definition for binary tree
@@ -41,6 +42,7 @@ public class BinarySearchTree {
         printAllPaths(root, path, paths);
         return paths.toString();
     }
+
     public void printAllPaths(TreeNode root, List<Integer> path, List<List<Integer>> paths) {
         if (root == null) {
             return;
@@ -69,6 +71,50 @@ public class BinarySearchTree {
         int maxPath = 1 + Math.max(leftPath, rightPath);
         return maxPath;
     }
+
+    public void printLevelByLevel(TreeNode root) {
+        if (root == null) {
+            System.out.println(root.val);
+            return;
+        }
+        Queue<TreeNode> q = new LinkedList();
+        q.offer(root);
+        int level = 0;
+        while (!q.isEmpty()) {
+            TreeNode t = q.poll();
+            System.out.println(t.val);
+            if (t.left != null) {
+                q.offer(t.left);
+            }
+            if (t.right != null) {
+                q.offer(t.right);
+            }
+        }
+        level++;
+
+    }
+
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> levels = new ArrayList<>();
+        levelOrderHelper(root, levels, 0);
+        return levels;
+    }
+
+    private void levelOrderHelper(TreeNode root, List<List<Integer>> levels, int level) {
+        if (root == null) {
+            return;
+        }
+
+        if (levels.size() <= level) {
+            levels.add(new ArrayList<>());
+        }
+
+        List<Integer> l = levels.get(level);
+        l.add(root.val);
+        levelOrderHelper(root.left, levels, level + 1);
+        levelOrderHelper(root.right, levels, level + 1);
+    }
+
 
     public List<Integer> inorder() {
         List<Integer> list = new LinkedList<Integer>();
